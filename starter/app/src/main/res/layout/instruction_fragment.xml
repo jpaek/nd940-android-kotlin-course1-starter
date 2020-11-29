@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".InstructionFragment">
+
+        <TextView
+            android:id="@+id/instruction1"
+            android:layout_width="350dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="34dp"
+            android:text="From the next screen, select a shoe from the list of shoes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/instruction2"
+            android:layout_width="333dp"
+            android:layout_height="86dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="43dp"
+            android:text="Once you select a shoe, it will show the detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instruction1" />
+
+        <Button
+            android:id="@+id/buttonToList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="245dp"
+            android:layout_marginBottom="311dp"
+            android:text="To Shoes List"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instruction2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
