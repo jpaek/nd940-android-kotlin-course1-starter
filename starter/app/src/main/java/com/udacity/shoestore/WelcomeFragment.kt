@@ -29,18 +29,9 @@ class WelcomeFragment : Fragment() {
         binding.instructionButton.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment())
         }
-        setHasOptionsMenu(true)
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.overflow_menu, menu)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
-    }
 
 }

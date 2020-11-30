@@ -41,12 +41,24 @@ class ShoeListFragment : Fragment() {
             //binding.linearLayout.removeAllViewsInLayout()
             shoes.forEach { shoe ->
                 val textView = TextView(this.context)
-                textView.text = shoe.name
+                textView.text = "Name: " + shoe.name + "\nCompany: " + shoe.company +
+                        "\nSize: " + shoe.size + "\nDescription: " + shoe.description
                 binding.linearLayout.addView(textView)
             }
         })
+        setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
     }
 
 
