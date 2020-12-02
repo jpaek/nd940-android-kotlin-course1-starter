@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.databinding.WelcomeFragmentBinding
+import com.udacity.shoestore.models.Shoe
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,9 +36,24 @@ class ShoeDetailFragment : Fragment() {
             findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment() )
         }
         viewModel = (activity as MainActivity).viewModel
+        binding.shoeViewModel = viewModel
         binding.saveButton.setOnClickListener {
-            viewModel.onSave(binding.shoeNameText.text.toString(), binding.companyText.text.toString(), binding.shoeSizeText.text.toString(), binding.descriptionText.text.toString())
-            findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment() )
+            try {
+                viewModel.onSave(
+                        binding.shoeNameText.text.toString(),
+                        binding.companyText.text.toString(),
+                        binding.shoeSizeText.text.toString(),
+                        binding.descriptionText.text.toString())
+                viewModel.newShoe.value = Shoe(
+                        binding.shoeNameText.text.toString(),
+                        binding.shoeSizeText.text.toString().toDouble(),
+                        binding.companyText.text.toString(),
+                        binding.descriptionText.text.toString())
+                findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment() )
+            } catch (ex: Exception) {
+                Toast.makeText(activity, "Shoe size must be a number", Toast.LENGTH_SHORT).show()
+            }
+
         }
         setHasOptionsMenu(true)
         return binding.root

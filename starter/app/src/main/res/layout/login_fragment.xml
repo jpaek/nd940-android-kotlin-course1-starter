@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".LoginFragment">
 
+    <data>
+        <variable
+            name="shoesViewModel"
+            type="com.udacity.shoestore.ShoesViewModel" />
+    </data>
+
     <!-- Constraint layout is used to align the text input fields and the buttons to each other -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,6 +36,7 @@
             android:layout_marginTop="25dp"
             android:autofillHints=""
             android:ems="10"
+            android:text="@{shoesViewModel.email}"
             android:inputType="textPassword"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordLabel" />
@@ -76,6 +83,7 @@
             android:autofillHints=""
             android:ems="10"
             android:inputType="textEmailAddress"
+            android:text="@{shoesViewModel.password}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailLabel" />
 

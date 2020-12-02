@@ -11,6 +11,10 @@ class ShoesViewModel : ViewModel(){
     val shoes: LiveData<List<Shoe>>
         get() = _shoes
 
+    val email = MutableLiveData<String>()
+    val password = MutableLiveData<String>()
+    val newShoe = MutableLiveData<Shoe>()
+
     init {
         _shoes.value = emptyList()
     }

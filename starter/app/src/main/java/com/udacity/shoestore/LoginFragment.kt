@@ -1,6 +1,7 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -21,16 +22,23 @@ private const val ARG_PARAM2 = "param2"
  */
 class LoginFragment : Fragment() {
 
+    private lateinit var viewModel: ShoesViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val binding: LoginFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
+        viewModel = (activity as MainActivity).viewModel
+        binding.shoesViewModel = viewModel
         binding.registerButton.setOnClickListener {
+            viewModel.email.value = binding.emailText.text.toString()
+            viewModel.password.value = binding.passwordText.text.toString()
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
         }
         binding.loginButton.setOnClickListener {
+            viewModel.email.value = binding.emailText.text.toString()
+            viewModel.password.value = binding.passwordText.text.toString()
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
         }
 

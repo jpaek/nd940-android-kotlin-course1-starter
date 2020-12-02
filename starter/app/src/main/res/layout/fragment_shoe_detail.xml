@@ -35,7 +35,7 @@
             android:layout_marginTop="@dimen/fragment_vertical_margin"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:text="@{shoeViewModel.newShoe.name}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameLabel" />
 
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Company"
+            android:text="@{shoeViewModel.newShoe.company}"
             tools:layout_editor_absoluteX="18dp"
             tools:layout_editor_absoluteY="248dp"
             android:layout_marginStart="@dimen/fragment_horizontal_margin"
@@ -85,7 +85,7 @@
             android:layout_marginTop="@dimen/fragment_vertical_margin"
             android:ems="10"
             android:inputType="text"
-            android:text="Shoe Size"
+            android:text="@{@string/format_double(shoeViewModel.newShoe.size)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeLabel" />
 
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textLongMessage"
-            android:text="Description"
+            android:text="@{shoeViewModel.newShoe.description}"
             tools:layout_editor_absoluteX="28dp"
             tools:layout_editor_absoluteY="543dp"
             android:layout_marginStart="@dimen/fragment_horizontal_margin"

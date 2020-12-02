@@ -18,4 +18,5 @@
     <string name="about">About</string>
     <string name="logout">Logout</string>
     <string name="new_shoes">New Shoes</string>
+    <string name="format_double">%.2f</string>
 </resources>
